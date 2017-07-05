@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="../public/styles.css">
+</head>
+
+<body>
+    <h1>Books!</h1>
+    {{#result}}
+    <div class="collection-item">
+        
+        <p> Title: {{title}}</p>
+        <p> Author: {{author}}</p>
+        <p> Genre: {{genre}}</p>
+        <p> Length: {{length}} pages</p>
+        <h1>Related Titles</h1>
+        {{#relatedBooks}}
+        <p>{{title}} by {{author}} </p>
+        {{/relatedBooks}}
+        <form method="POST" action="/delete/{{_id}}">
+            <button type="submit"> Delete Item </button>
+        </form>
+    </div>
+    {{/result}}
+    <hr>
+    <form method="POST" action="/edit-collection/{{#result}}{{_id}}{{/result}}">
+        <input type="text" name="newTitle" placeholder="Title of book:" autofocus>
+        <input type="text" name="newAuthor" placeholder="Author:">
+        <input type="text" name="newGenre" placeholder="Genre:">
+        <input type="number" name="newLength" placeholder="Length:">
+        <h1>Related Titles</h1>
+        <input type="text" name="newRelatedTitle" placeholder="Title:">
+        <input type="text" name="newRelatedAuthor" placeholder="Author:">
+        <button type="submit">Update Item</button>
+    </form>
+</body>
+
+</html>

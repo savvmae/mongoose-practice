@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../public/styles.css">
+    </head>
+    <body>
+        <h1> New Book! </h1>
+        <form method="POST" action="/new-collection">
+            <input type="text" name="title" placeholder="Title of book:" autofocus>
+            <input type="text" name="author" placeholder="Author:">
+            <input type="text" name="genre" placeholder="Genre:">
+            <input type="number" name="length" placeholder="Length:">
+            <h1>Related Titles</h1>
+            <input type="text" name="relatedTitle" placeholder="Title:">
+            <input type="text" name="relatedAuthor" placeholder="Author:">
+            <button type="submit">Add Book</button>
+        </form>
+    </body>
+</html>

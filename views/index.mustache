@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="../public/styles.css">
+</head>
+
+<body>
+    <a href="/new-collection">Create New Item in Books Collection </a>
+    <h1>Books!</h1>
+    {{#books}}
+    <div class="collection-item">
+        <p> Title: {{title}}</p>
+        <p> Author: {{author}}</p>
+        <p> Genre: {{genre}}</p>
+        <p> Length: {{length}} pages</p>
+        <h1>Related Titles</h1>
+        {{#relatedBooks}}
+        <p>{{title}} by {{author}} </p>
+        {{/relatedBooks}} 
+        <a href='/edit-collection/{{id}}'>Edit this Item </a>
+        <hr>
+        <a href='/add-related/{{id}}'>Add more related Titles </a>
+        </div>
+        {{/books}}
+</body>
+
+</html>

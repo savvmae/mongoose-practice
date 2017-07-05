@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="../public/styles.css">
+</head>
+
+<body>
+    <h1>Book!</h1>
+    {{#result}}
+    <div class="collection-item">
+        
+        <p> Title: {{title}}</p>
+        <p> Author: {{author}}</p>
+        <p> Genre: {{genre}}</p>
+        <p> Length: {{length}} pages</p>
+        <h1>Related Titles</h1>
+        {{#relatedBooks}}
+        <p>{{title}} by {{author}} </p>
+        {{/relatedBooks}}
+    </div>
+    {{/result}}
+    <hr>
+    <form method="POST" action="/add-related/{{#result}}{{_id}}{{/result}}">
+        <h1>Related Titles</h1>
+        <input type="text" name="title" placeholder="Title:">
+        <input type="text" name="author" placeholder="Author:">
+        <button type="submit">Add Related Title</button>
+    </form>
+</body>
+
+</html>

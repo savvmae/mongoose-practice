@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+h1 {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    font-size: 26px;
+}
+.collection-item {
+    border: 2px solid brown;
+    height: auto;
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px;
+}
+a {
+    color:brown;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+form {
+    margin-top: 20px;
+}
