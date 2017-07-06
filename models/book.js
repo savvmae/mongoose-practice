@@ -6,6 +6,7 @@ const booksSchema = new mongoose.Schema({
     genre: { type: String, required: true},
     length: { type: Number, default: 1},
     relatedBooks: [ {title: String, author: String}]
+
 });
 
 const Book = mongoose.model('Book', booksSchema);

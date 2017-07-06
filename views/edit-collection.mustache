@@ -39,19 +39,22 @@
         <label for="newLength">Length</label>
         <input type="number" name="newLength" id="newLength" value="{{length}}">
     </div>
+     <button type="submit">Update Item</button>
+    </form>
         <h2 class="onehundred">Related Titles</h2>
         {{#relatedBooks}}
+        <form class="edit" method="POST" action="/edit-related/{{bookId}}/{{_id}}">
         <div class="onehundred">
         <label for="newRelatedTitle">Title</label>
         <input type="text" name="newRelatedTitle" id="newRelatedTitle" value="{{title}}">
         </div><div class="onehundred">
         <label for="newRelatedAuthor">Author</label>
         <input type="text" name="newRelatedAuthor" id="newRelatedAuthor" value="{{author}}">
+        <button type="submit">Update Item</button>
         </div>
+        </form>
         <hr>
         {{/relatedBooks}}
-        <button type="submit">Update Item</button>
-    </form>
     </div>
     {{/result}}
 </body>
