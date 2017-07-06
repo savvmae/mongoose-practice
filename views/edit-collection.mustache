@@ -5,7 +5,7 @@
 </head>
 
 <body>
-    <h1>Books!</h1>
+    <h1>Current Book!</h1>
     {{#result}}
     <div class="collection-item">
         
@@ -13,7 +13,7 @@
         <p> Author: {{author}}</p>
         <p> Genre: {{genre}}</p>
         <p> Length: {{length}} pages</p>
-        <h1>Related Titles</h1>
+        <h2>Related Titles</h2>
         {{#relatedBooks}}
         <p>{{title}} by {{author}} </p>
         {{/relatedBooks}}
@@ -21,18 +21,39 @@
             <button type="submit"> Delete Item </button>
         </form>
     </div>
-    {{/result}}
-    <hr>
-    <form method="POST" action="/edit-collection/{{#result}}{{_id}}{{/result}}">
-        <input type="text" name="newTitle" placeholder="Title of book:" autofocus>
-        <input type="text" name="newAuthor" placeholder="Author:">
-        <input type="text" name="newGenre" placeholder="Genre:">
-        <input type="number" name="newLength" placeholder="Length:">
-        <h1>Related Titles</h1>
-        <input type="text" name="newRelatedTitle" placeholder="Title:">
-        <input type="text" name="newRelatedAuthor" placeholder="Author:">
+
+    <div class="collection-item">
+        <h1> Edit Book </h1>
+    <form class="edit" method="POST" action="/edit-collection/{{_id}}">
+    <div class="fifty-percent">
+        <label for="newTitle">Title</label>
+        <input id="newTitle" type="text" name="newTitle" value="{{title}}" autofocus>
+
+        <label for="newAuthor">Author</label>
+        <input type="text" name="newAuthor" id="newAuthor" value="{{author}}">
+    </div>
+    <div class="fifty-percent">
+        <label for="newGenre">Genre</label>
+        <input type="text" name="newGenre" id="newGenre" value="{{genre}}">
+
+        <label for="newLength">Length</label>
+        <input type="number" name="newLength" id="newLength" value="{{length}}">
+    </div>
+        <h2 class="onehundred">Related Titles</h2>
+        {{#relatedBooks}}
+        <div class="onehundred">
+        <label for="newRelatedTitle">Title</label>
+        <input type="text" name="newRelatedTitle" id="newRelatedTitle" value="{{title}}">
+        </div><div class="onehundred">
+        <label for="newRelatedAuthor">Author</label>
+        <input type="text" name="newRelatedAuthor" id="newRelatedAuthor" value="{{author}}">
+        </div>
+        <hr>
+        {{/relatedBooks}}
         <button type="submit">Update Item</button>
     </form>
+    </div>
+    {{/result}}
 </body>
 
 </html>

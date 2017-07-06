@@ -25,7 +25,7 @@ async function getBooks() {
 
 application.get('/', async (request, response) => {
     var collections = await getBooks();
-    var model = { books: collections }
+    var model = { books: collections}
     response.render('index', model);
 });
 
@@ -61,16 +61,17 @@ application.post('/new-collection', (request, response) => {
 
 application.post('/edit-collection/:id', async (request, response) => {
     var bookId = request.params.id;
-    await Book.updateOne({ _id: bookId },
+    // bug in updating related books, will push all titles and authors to one object. help!
+    await Book.findOneAndUpdate({ _id: bookId },
         {
             title: request.body.newTitle,
             author: request.body.newAuthor,
             length: request.body.newLength,
             genre: request.body.newGenre,
-            relatedBooks: [{
+            relatedBooks: {
                 title: request.body.newRelatedTitle,
                 author: request.body.newRelatedAuthor
-            }]
+            }
         })
     response.redirect('/');
 });
@@ -83,13 +84,11 @@ application.post('/delete/:id', async (request, response) => {
 
 application.post('/add-related/:id', async (request, response) => {
     var bookId = request.params.id;
-    await Book.updateOne({ _id: bookId },
+    var relatedTitleObject = {"title": request.body.title, "author": request.body.author};
+    await Book.findOneAndUpdate({ _id: bookId },
         {
             $push: {
-                relatedBooks: {
-                    title: request.body.title,
-                    author: request.body.author
-                }
+                relatedBooks: relatedTitleObject
             }
         })
     response.redirect('/');

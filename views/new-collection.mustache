@@ -4,15 +4,17 @@
     </head>
     <body>
         <h1> New Book! </h1>
+        <div class="collection-item">
         <form method="POST" action="/new-collection">
             <input type="text" name="title" placeholder="Title of book:" autofocus>
             <input type="text" name="author" placeholder="Author:">
             <input type="text" name="genre" placeholder="Genre:">
             <input type="number" name="length" placeholder="Length:">
-            <h1>Related Titles</h1>
+            <h2>Related Title</h2>
             <input type="text" name="relatedTitle" placeholder="Title:">
             <input type="text" name="relatedAuthor" placeholder="Author:">
             <button type="submit">Add Book</button>
         </form>
+        </div>
     </body>
 </html>

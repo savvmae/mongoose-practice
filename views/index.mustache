@@ -16,10 +16,11 @@
         <h1>Related Titles</h1>
         {{#relatedBooks}}
         <p>{{title}} by {{author}} </p>
-        {{/relatedBooks}} 
+        {{/relatedBooks}}
+        <div class="wide-split">
         <a href='/edit-collection/{{id}}'>Edit this Item </a>
-        <hr>
         <a href='/add-related/{{id}}'>Add more related Titles </a>
+        </div>
         </div>
         {{/books}}
 </body>

@@ -24,3 +24,23 @@ a {
 form {
     margin-top: 20px;
 }
+.edit {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.fifty-percent {
+    width: 50%;
+
+}
+.onehundred {
+    width: 100%;
+}
+input {
+    margin: 10px 0px;
+}
+.wide-split {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
