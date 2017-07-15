@@ -43,7 +43,7 @@
     </form>
         <h2 class="onehundred">Related Titles</h2>
         {{#relatedBooks}}
-        <form class="edit" method="POST" action="/edit-related/{{bookId}}/{{_id}}">
+        <form class="edit" method="POST" action="/edit-related/{{_id}}">
         <div class="onehundred">
         <label for="newRelatedTitle">Title</label>
         <input type="text" name="newRelatedTitle" id="newRelatedTitle" value="{{title}}">
